@@ -1,0 +1,13 @@
+version: '2'
+services:
+    node:
+        image: node:6.7.0-slim
+        container_name: node
+        restart: always
+        ports:
+         - "3000:3000"
+         - "9876:9876"
+        volumes:
+         - ./volumes/app:/mean
+        tty: true
+
