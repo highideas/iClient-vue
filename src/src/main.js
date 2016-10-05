@@ -12,8 +12,7 @@ const router = new VueRouter({
     routes
 })
 
-
-new Vue({ // eslint-disable-line no-new
+new Vue({
   el: '#app',
   render: (h) => h(App),
     router

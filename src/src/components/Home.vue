@@ -48,7 +48,8 @@ export default {
         login() {
             this.$http.post('http://localhost:3000/authenticate', this.form).then(function(res){
                 if (res.status == 200) {
-                    localStorage.setItem('jwt-token', res.data.token);
+                    localStorage.token = res.data.token;
+                    window.location.href = "/#/client";
                 }
             }, function(err){
                 console.log(err);

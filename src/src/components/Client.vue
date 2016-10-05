@@ -47,7 +47,7 @@ export default {
         console.log(localStorage.getItem('jwt-token'));
             this.$http.get('http://localhost:3000/api/v1/client', {
                  headers: {
-                    Authorization : localStorage.getItem('jwt-token')
+                    Authorization : localStorage.token
                 }
             }).then(function (res) {
                 console.log(res);
