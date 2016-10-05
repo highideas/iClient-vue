@@ -8,6 +8,6 @@ services:
          - "3000:3000"
          - "9876:9876"
         volumes:
-         - ./volumes/app:/mean
+         - ./:/client
         tty: true
 
