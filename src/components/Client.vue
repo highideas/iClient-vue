@@ -1,4 +1,6 @@
 <template>
+<section class="hero is-fullheight is-primary">
+
   <div class="container hello">
     <h1>{{ msg }}</h1>
 
@@ -33,6 +35,7 @@
 
 
   </div>
+  </section>
 </template>
 
 <script>

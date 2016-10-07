@@ -9,13 +9,18 @@
               IClient
             </h1>
             <div class="box">
+                <div class="notification is-danger" v-if="error">
+                    <button class="delete"></button>
+                    {{ this.error }}
+                </div>
+
               <label class="label">Username</label>
               <p class="control">
-                <input class="input" type="text" placeholder="JS Smith" v-model="form.username">
+                <input class="input usermane" type="text" placeholder="JS Smith" v-model="form.username">
               </p>{{ form.username }}
               <label class="label">Password</label>
-              <p class="control">
-                <input class="input" type="password" placeholder="●●●●●●●" v-model="form.password">
+              <p class="control has-icon has-icon-right">
+                <input class="input password" type="password" placeholder="●●●●●●●" v-model="form.password">
               </p>
               <hr>
               <p class="control">
@@ -35,16 +40,18 @@
 export default {
   data () {
     return {
-      form: {}
+      form: {},
+        error: false
     }
   },
     methods: {
         login() {
             this.$http.post('http://localhost:3000/authenticate', this.form).then(function(res){
-                if (res.status == 200) {
+                if (res.status == 200 && res.data.success == 200) {
                     localStorage.token = res.data.token;
                     window.location.href = "/#/";
                 }
+                this.error = res.data.message;
             }, function(err){
                 console.log(err);
             });

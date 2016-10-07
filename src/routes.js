@@ -1,6 +1,7 @@
 import Client from './components/Client.vue'
 import Home from './components/Home.vue'
 import Login from './components/Login.vue'
+import Area from './components/Areas.vue'
 import auth from './auth'
 
 function requireAuth (to, from, next) {
@@ -27,6 +28,10 @@ export default [
     {
         'path': '/login',
         component: Login,
+    },
+    {
+        'path': '/area',
+        component: Area
     }
 ];
 
