@@ -1,12 +1,11 @@
 version: '2'
 services:
-    node:
-        image: node:6.7.0-slim
-        container_name: node
+    iClientNodeClient:
+        image: node:4.6.0
+        container_name: iClientNodeClient
         restart: always
         ports:
-         - "3000:3000"
-         - "9876:9876"
+         - "8080:8080"
         volumes:
          - ./:/client
         tty: true
