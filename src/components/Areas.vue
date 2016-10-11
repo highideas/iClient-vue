@@ -2,15 +2,13 @@
 <section class="hero is-fullheight is-primary">
 
   <div class="container hello">
-    <h1>{{ msg }}</h1>
-
     <div class="area" v-for="area in areas">
-        {{ area.name }}
+        <h3 class="title is-3">{{ area.name }}</h3>
         <table class="table">
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Address</th>
+                    <th>Last Visit</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -18,7 +16,7 @@
             <tbody>
                 <tr v-for="client in area.clients">
                     <td>{{ client.name }}</td>
-                    <td>{{ client.visit }}</td>
+                    <td>{{ client.visita }}</td>
                     <td class="is-icon">
                         <a href="#">
                             <i class="fa fa-calendar"></i>
@@ -51,16 +49,15 @@ export default {
                 name: "Area 1",
                 clients: [
                     {name: "Client 1", visita: "10/09/2006"},
-                    {name: "Client 2", visita: "10/09/2006"},
+                    {name: "Client 2", visita: "11/09/2006"},
                     {name: "Client 3", visita: "10/09/2006"}
                 ]
             },
             { 
-                name: "Area 1",
+                name: "Area 2",
                 clients: [
-                    {name: "Client 1", visita: "10/09/2006"},
+                    {name: "Client 1", visita: "11/09/2006"},
                     {name: "Client 2", visita: "10/09/2006"},
-                    {name: "Client 3", visita: "10/09/2006"}
                 ]
             }
         ]

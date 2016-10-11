@@ -31,7 +31,8 @@ export default [
     },
     {
         'path': '/area',
-        component: Area
+        component: Area,
+        beforeEnter: requireAuth
     }
 ];
 

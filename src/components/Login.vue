@@ -5,7 +5,7 @@
       <div class="container">
         <div class="columns is-vcentered">
           <div class="column is-4 is-offset-4">
-            <h1 class="title has-text-centered">
+            <h1 class="title has-text-centered is-1">
               IClient
             </h1>
             <div class="box">
@@ -25,7 +25,6 @@
               <hr>
               <p class="control">
                 <button class="button is-primary" v-on:click="login">Login</button>
-                <button class="button is-default">Cancel</button>
               </p>
             </div>
           </div>
@@ -41,7 +40,7 @@ export default {
   data () {
     return {
       form: {},
-        error: false
+      error: false,
     }
   },
     methods: {
@@ -49,12 +48,18 @@ export default {
             this.$http.post('http://localhost:3000/authenticate', this.form).then(function(res){
                 if (res.status == 200 && res.data.success == 200) {
                     localStorage.token = res.data.token;
-                    window.location.href = "/#/";
+                    window.location.href="/#/";
+//                    this.$router.push('/');
                 }
                 this.error = res.data.message;
             }, function(err){
                 console.log(err);
             });
+        }
+    },
+    watch: {
+        '$route' (to, from) {
+            console.log(to, from);
         }
     }
 }

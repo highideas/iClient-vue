@@ -3,10 +3,8 @@
 
     <div class="hero-body">
       <div class="container">
-        <div class="columns is-vcentered">
-          <div class="column is-4 is-offset-4">
-            <h1 class="title has-text-centered">Welcome to IClient</h1>
-          </div>
+        <div class="is-half is-offset-one-quarter">
+            <h1 class="title has-text-centered is-1">Welcome to IClient</h1>
         </div>
       </div>
     </div>
@@ -22,7 +20,5 @@ export default {
         form: {}
     }
   },
-    methods: {
-    }
 }
 </script>
