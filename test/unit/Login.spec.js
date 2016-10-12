@@ -1,13 +1,14 @@
 import Vue from 'vue'
-import Home from '../../src/components/Home.vue'
+import Login from '../../src/components/Login.vue'
 
-describe('Hello.vue', () => {
+describe('Login.vue', () => {
   it('should render correct contents', () => {
     const vm = new Vue({
       el: document.createElement('div'),
-      render: (h) => h(Home)
+      render: (h) => h(Login)
     })
-    expect(vm.$el.querySelector('h1.title').textContent).toBe('Welcome to IClient')
+    console.log(vm.$el.querySelector('button.button.is-primary'))
+    expect(vm.$el.querySelector('button.button.is-primary').textContent).toBe('Welcome to IClient')
   })
 })
 
