@@ -10,7 +10,7 @@
             </h1>
             <div class="box">
                 <div class="notification is-danger" v-if="error">
-                    <button class="delete"></button>
+                    <button class="delete" @click="cleanError"></button>
                     {{ this.error }}
                 </div>
 
@@ -48,19 +48,17 @@ export default {
             this.$http.post('http://localhost:3000/authenticate', this.form).then(function(res){
                 if (res.status == 200 && res.data.success == 200) {
                     localStorage.token = res.data.token;
-                    window.location.href="/#/";
-//                    this.$router.push('/');
+                    this.$router.push('/');
                 }
                 this.error = res.data.message;
             }, function(err){
                 console.log(err);
             });
+        },
+
+        cleanError() {
+            this.error = false;
         }
     },
-    watch: {
-        '$route' (to, from) {
-            console.log(to, from);
-        }
-    }
 }
 </script>

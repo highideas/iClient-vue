@@ -18,7 +18,13 @@ export default [
     {
         'path': '/client',
         component: Client,
-        beforeEnter: requireAuth
+        beforeEnter: requireAuth,
+/*        children: [
+            {
+                'path': '/create',
+                component: ClientCreate
+            }
+        ]*/
     },
     {
         'path': '/',
@@ -31,6 +37,12 @@ export default [
     },
     {
         'path': '/area',
+        component: Area,
+        beforeEnter: requireAuth
+    },
+    {
+        'path': '/visit/:id',
+        'name' : 'visit',
         component: Area,
         beforeEnter: requireAuth
     }

@@ -19,9 +19,6 @@
           <a class="button" @click="logout">
             Logout
           </a>
-          <a class="button is-info">
-            Sign up
-          </a>
         </span>
       </div>
     </div>
@@ -34,7 +31,7 @@ import auth from '../auth.js'
 export default {
     data() {
         return {
-            isLogged: false,
+            isLogged: auth.loggedIn(),
         }
     },
     methods : {

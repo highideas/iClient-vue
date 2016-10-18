@@ -1,8 +1,8 @@
 version: '2'
 services:
-    iClientNodeClient:
+    iClientVue:
         image: node:4.6.0
-        container_name: iClientNodeClient
+        container_name: iClientVue
         restart: always
         ports:
          - "8080:8080"
