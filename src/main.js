@@ -6,10 +6,11 @@ import VueRouter from 'vue-router'
 Vue.use(VueResource)
 Vue.use(VueRouter)
 
-import routes from './routes.js'
+import routes from './routes/routes.js'
 const router = new VueRouter({
     history: true,
-    routes
+    routes,
+    linkActiveClass: 'is-active'
 })
 
 new Vue({

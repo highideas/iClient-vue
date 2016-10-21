@@ -12,7 +12,7 @@
         <span></span>
       </span>
       <div class="nav-right nav-menu">
-        <router-link to="/" class="nav-item is-tab is-active">Home</router-link>
+        <router-link to="/" class="nav-item is-tab">Home</router-link>
         <router-link to="/client" class="nav-item is-tab">Client</router-link>
         <router-link to="/area" class="nav-item is-tab">Area</router-link>
         <span class="nav-item">
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import auth from '../auth.js'
+import auth from '../../auth.js'
 
 export default {
     data() {

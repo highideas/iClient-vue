@@ -4,7 +4,8 @@
     <div class="hero-body">
       <div class="container">
         <div class="is-half is-offset-one-quarter">
-            <h1 class="title has-text-centered is-1">Welcome to IClient</h1>
+            <h1 class="title has-text-centered is-1">VISIT CREATE</h1>
+            <router-view></router-view>
         </div>
       </div>
     </div>
@@ -16,8 +17,7 @@
 export default {
   data () {
     return {
-      msg: 'Clients',
-        form: {}
+        data: console.log(this)
     }
   },
 }
