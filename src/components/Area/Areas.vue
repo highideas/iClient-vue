@@ -17,7 +17,7 @@
                     <td>{{ areaVisit.visit.client.name }}</td>
                     <td>{{ areaVisit.visit.visit_date }}</td>
                     <td class="is-icon">
-                        <router-link :to="{ name: 'visit', params: { id: areaVisit.visit._id }}">
+                        <router-link :to="{ path: '/visit/' + areaVisit.visit._id, params: { id: areaVisit.visit._id }}">
                             <i class="fa fa-info-circle"></i>
                         </router-link>
                     </td>
@@ -40,7 +40,7 @@ export default {
     }
   },
     created: function (){
-        console.log(localStorage.getItem('jwt-token'));
+        console.log(this.$router);
             this.$http.get('http://localhost:3000/api/v1/visit/group/area', {
                  headers: {
                     Authorization : localStorage.token
