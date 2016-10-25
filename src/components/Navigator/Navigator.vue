@@ -6,15 +6,15 @@
             IClient
         </a>
       </div>
-      <span class="nav-toggle">
+      <span class="nav-toggle" @click="handleToogle" v-bind:class="{ 'is-active': toogle }">
         <span></span>
         <span></span>
         <span></span>
       </span>
-      <div class="nav-right nav-menu">
-        <router-link to="/" class="nav-item is-tab is-active">Home</router-link>
-        <router-link to="/client" class="nav-item is-tab">Client</router-link>
-        <router-link to="/area" class="nav-item is-tab">Area</router-link>
+      <div class="nav-right nav-menu" v-bind:class="{ 'is-active': toogle }">
+        <router-link to="/" class="nav-item is-tab" exact>Home</router-link>
+        <router-link to="/client" class="nav-item is-tab" exact>Client</router-link>
+        <router-link to="/area" class="nav-item is-tab" exact>Area</router-link>
         <span class="nav-item">
           <a class="button" @click="logout">
             Logout
@@ -26,12 +26,13 @@
 </template>
 
 <script>
-import auth from '../auth.js'
+import auth from '../../auth.js'
 
 export default {
     data() {
         return {
             isLogged: auth.loggedIn(),
+            toogle: false
         }
     },
     methods : {
@@ -42,10 +43,13 @@ export default {
         },
         verifyLogin() {
             this.isLogged = auth.loggedIn();
+        },
+        handleToogle() {
+            this.toogle = !this.toogle;
         }
     },
     watch: {
-        '$route': 'verifyLogin'
+        '$route': ['verifyLogin', 'handleToogle']
     }
 }
 </script>
