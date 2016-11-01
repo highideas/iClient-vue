@@ -17,7 +17,7 @@
                     <td>{{ areaVisit.visit.client.name }}</td>
                     <td>{{ areaVisit.visit.visit_date }}</td>
                     <td class="is-icon">
-                        <router-link :to="{ path: '/visit/' + areaVisit.visit._id, params: { id: areaVisit.visit._id }}">
+                        <router-link :to="{ path: '/visit/' + areaVisit.visit._id, params: { id: areaVisit.visit._id }}" exac>
                             <i class="fa fa-info-circle"></i>
                         </router-link>
                     </td>
@@ -33,6 +33,9 @@
 </template>
 
 <script>
+
+import { HOST } from '../../config.js'
+
 export default {
   data () {
     return {
@@ -40,8 +43,7 @@ export default {
     }
   },
     created: function (){
-        console.log(this.$router);
-            this.$http.get('http://localhost:3000/api/v1/visit/group/area', {
+            this.$http.get(`${HOST}/api/v1/visit/group/area`, {
                  headers: {
                     Authorization : localStorage.token
                 }

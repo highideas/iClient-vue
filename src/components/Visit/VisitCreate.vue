@@ -1,13 +1,27 @@
 <template>
 <section class="hero is-fullheight is-primary">
 
-    <div class="hero-body">
+	<div class="hero-body">
       <div class="container">
-        <div class="is-half is-offset-one-quarter">
-            <h1 class="title has-text-centered is-1">VISIT CREATE</h1>
-            <router-view></router-view>
-        </div>
+	<div class="columns">
+	
+        <div class="column is-half is-offset-one-quarter">
+            <h3 class="title has-text-centered is-3">VISIT CREATE</h3>
+	    <label class="label">Data</label>
+	    <p class="control">
+  		<input class="input" type="date">
+	    </p>
       </div>
+      </div>
+	<div class="columns">
+  <div class="column is-half notification is-warning">
+    First column
+  </div>
+  <div class="column is-half notification is-danger">
+    Second column
+  </div>
+  </div>
+    </div>
     </div>
 
   </section>

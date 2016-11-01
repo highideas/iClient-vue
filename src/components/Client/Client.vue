@@ -39,6 +39,9 @@
 </template>
 
 <script>
+
+import { HOST } from '../../config.js'
+
 export default {
   data () {
     return {
@@ -47,15 +50,15 @@ export default {
     }
   },
     created: function (){
-            this.$http.get('http://localhost:3000/api/v1/client', {
-                 headers: {
+	this.$http.get(`${HOST}/api/v1/client`, {
+        	headers: {
                     Authorization : localStorage.token
                 }
-            }).then(function (res) {
-                this.clients = res.data.clients;
-            }, function (err) {
+   	}).then(function (res) {
+        	this.clients = res.data.clients;
+     	}, function (err) {
                 console.log(err);
-            });
+      	});
     },
     methods: {
     }
