@@ -26,6 +26,9 @@
 </template>
 
 <script>
+
+import { HOST } from '../../config.js'
+
 export default {
     data () {
         return {
@@ -33,8 +36,7 @@ export default {
         }
     },
     created() {
-        console.log(this.$route.params.id)
-        var url = 'http://localhost:3000/api/v1/visit/' + this.$route.params.id
+        var url = `${HOST}/api/v1/visit/` + this.$route.params.id
         this.$http.get(url, {
             headers: {
                 Authorization : localStorage.token

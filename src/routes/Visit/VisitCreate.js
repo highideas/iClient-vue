@@ -1,8 +1,8 @@
-import VisitCreate from '../../components/Visit/VisitShow.vue'
+import VisitCreate from '../../components/Visit/VisitCreate.vue'
 import auth from '../../auth'
 
 export default {
-    'path' : '/visit/create',
+    'path' : '/visit/schedule',
     component: VisitCreate,
     beforeEnter: auth.requireAuth,
 }
