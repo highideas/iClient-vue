@@ -15,7 +15,6 @@
         <router-link to="/" class="nav-item is-tab" exact>Home</router-link>
         <router-link to="/client" class="nav-item is-tab" exact>Client</router-link>
         <router-link to="/area" class="nav-item is-tab" exact>Area</router-link>
-        <router-link to="/visit/schedule" class="nav-item is-tab" exact>Agendar Visita</router-link>
         <span class="nav-item">
           <a class="button" @click="logout">
             Logout

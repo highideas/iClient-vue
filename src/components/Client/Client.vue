@@ -23,12 +23,12 @@
         <footer class="modal-card-foot column is-12">
             <div class="columns">
                 <div class="column">
-                    <a class="button is-info btn-block">
+                    <router-link :to="{ path: '/visit/create/' + clientSelected._id, params: { id: clientSelected._id }}"  class="button is-info btn-block" exac>
                         <span class="icon">
                             <i class="fa fa-check"></i>
                         </span>
                         <span>Visited</span>
-                    </a>
+                    </router-link>
                 </div>
             <div class="column">
                 <a class="button is-info btn-block">
