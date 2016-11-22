@@ -3,14 +3,19 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Address</th>
+                <th>Area</th>
                 <th>City</th>
             </tr>
         </thead>
         <tbody>
-            <tr v-for="client in clients" @click="clickClient(client)" class="rowClient">
+            <tr>
+                <td> <input type="text" v-model="filterName" /> </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr v-for="client in filteredClients" @click="clickClient(client)" class="rowClient">
                 <td>{{ client.name }}</td>
-                <td>{{ client.address }}</td>
+                <td>{{ client.area._id }}</td>
                 <td>{{ client.city }}</td>
             </tr>
         </tbody>
@@ -24,7 +29,8 @@ import { HOST } from '../../config.js'
 export default {
   data () {
     return {
-    clients: {}
+        clients: [],
+        filterName: "",
     }
   },
   created: function (){
@@ -43,9 +49,17 @@ export default {
   },
   methods: {
     clickClient(client) {
-    this.$emit('clickClient', client);
+        this.$emit('clickClient', client);
     },
   },
+  computed: {
+    filteredClients() {
+        let self = this;
+        return this.clients.filter(function(client){
+            return client.name.indexOf(self.filterName) > -1
+        });
+    }
+  }
 }
 </script>
 
