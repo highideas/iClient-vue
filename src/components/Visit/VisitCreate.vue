@@ -6,43 +6,34 @@
             <div class="columns">
                 <div class="column is-half is-offset-one-quarter">
                     <h3 class="title has-text-centered is-3">VISIT CREATE</h3>
-                    <label class="label">Data</label>
-                    <p class="control">
-                        <input class="input" type="date">
-                    </p>
                 </div>
             </div>
-            <div class="columns">
-                <div class="column is-half">
-                    <client-table v-on:clickClient="addClient($event)" >
-                    </client-table>
+            <center>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="content">
+                            <p class="is-5">Name: {{ client.name }}</p>
+                            <p class="is-6">Address: {{ client.address }}</p>
+                            <p class="is-6">City: {{ client.city }}</p>
+                            <hr>
+                            <label class="label">Value Received</label>
+                            <p class="control">
+                                <input class="input" type="text" placeholder="" v-model="value" required>
+                            </p>
+                            <label class="label">Quantity</label>
+                            <p class="control">
+                                <input class="input" type="text" placeholder="" v-model="quantity" required>
+                            </p>
+                            <button class="button is-primary" @click="createVisit()">Cadastrar</button>
+                        </div>
+                    </div>
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="http://placehold.it/300x225" alt="">
+                        </figure>
+                    </div>
                 </div>
-
-                <div class="column is-half">
-                    <table class="table">
-                        <thead>
-                            <tr @click="">
-                                <th>Name</th>
-                                <th>Address</th>
-                                <th>City</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="client in clientsSelected">
-                                <td>{{ client.name }}</td>
-                                <td>{{ client.address }}</td>
-                                <td>{{ client.city }}</td>
-                                <td class="is-icon">
-                                    <a href="#">
-                                        <i class="fa fa-minus"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            </center>
         </div>
     </div>
 </section>
@@ -51,26 +42,39 @@
 <script>
 
 import { HOST } from '../../config.js'
-import ClientTable from '../Client/ClientTable'
 
 export default {
   components : {
-    ClientTable
   },
   data () {
     return {
-        clients: {},
-    clientsSelected: [],
+    client: {},
+    value: 0,
+    quantity: 0,
     }
   },
   created() {
-
+    var url = `${HOST}/api/v1/client/` + this.$route.params.id
+    this.$http.get(url, {
+        headers: {
+            Authorization : localStorage.token
+        }
+    }).then(function (res) {
+        this.client = res.data.client[0];
+        console.log(this.client);
+    }, function (err) {
+        console.log(err);
+    });
   },
   methods: {
-    addClient(client) {
-      this.clientsSelected.push(client);
-      let index = this.$children[0].clients.indexOf(client);
-      this.$children[0].clients.splice(index,1);
+    createVisit() {
+        let data = {
+            client: this.client,
+            visit_date: new Date(),
+            sales_quantity: this.quantity,
+            value_received: this.value
+        };
+        console.log(data);
     }
   }
 }
