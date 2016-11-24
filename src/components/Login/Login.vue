@@ -15,12 +15,14 @@
                 </div>
 
               <label class="label">Username</label>
-              <p class="control">
+              <p class="control has-icon">
                 <input class="input usermane" type="text" placeholder="JS Smith" v-model="form.username" v-on:keyup.enter="login">
-              </p>{{ form.username }}
+                <i class="fa fa-user"></i>
+              </p>
               <label class="label">Password</label>
-              <p class="control has-icon has-icon-right">
+              <p class="control has-icon">
                 <input class="input password" type="password" placeholder="●●●●●●●" v-model="form.password" v-on:keyup.enter="login">
+                <i class="fa fa-lock"></i>
               </p>
               <hr>
               <p class="control">

@@ -30,31 +30,31 @@
                         <span>Visited</span>
                     </router-link>
                 </div>
-            <div class="column">
-                <a class="button is-info btn-block">
-                    <span class="icon">
-                        <i class="fa fa-calendar"></i>
-                    </span>
-                    <span>Schedule</span>
-                </a>
+                <div class="column">
+                    <a class="button is-info btn-block">
+                        <span class="icon">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                        <span>Schedule</span>
+                    </a>
+                </div>
+                <div class="column">
+                    <a class="button is-info btn-block">
+                        <span class="icon">
+                            <i class="fa fa-pencil"></i>
+                        </span>
+                        <span>Update</span>
+                    </a>
+                </div>
+                <div class="column">
+                    <a class="button is-danger btn-block">
+                        <span class="icon">
+                            <i class="fa fa-close"></i>
+                        </span>
+                        <span>Delete</span>
+                    </a>
+                </div>
             </div>
-            <div class="column">
-                <a class="button is-info btn-block">
-                    <span class="icon">
-                        <i class="fa fa-pencil"></i>
-                    </span>
-                    <span>Update</span>
-                </a>
-            </div>
-            <div class="column">
-                <a class="button is-danger btn-block"">
-                    <span class="icon">
-                        <i class="fa fa-close"></i>
-                    </span>
-                    <span>Delete</span>
-                </a>
-            </div>
-          </div>
         </footer>
       </div>
     </div>
