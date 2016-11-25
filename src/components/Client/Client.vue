@@ -1,10 +1,10 @@
 <template>
-<section class="hero is-fullheight is-primary client">
-  <div>
+<section class="">
+  <div class="container hello columns">
+    <div class="column is-10 is-offset-2">
     <h1 class="title is-1">{{ msg }}</h1>
-  </div>
-  <div class="hero is-fullheight is-primary">
     <client-table v-on:clickClient="openClient($event)" />
+    </div>
   </div>
 
     <div v-bind:class="[{ 'is-active': modalActive }, 'modal']">
@@ -93,6 +93,8 @@ export default {
     },
     methods: {
         openClient(client) {
+            let to = 'client/' + client._id;
+            this.$router.push(to);
             this.clientSelected = client;
             this.toogleModal();
             console.log(this.clientSelected);

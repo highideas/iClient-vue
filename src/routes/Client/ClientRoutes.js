@@ -1,14 +1,8 @@
-import Client from '../../components/Client/Client.vue'
+import ClientList from './ClientList'
+import ClientShow from './ClientShow'
 import auth from '../../auth'
 
-export default [{
-        'path': '/client',
-        component: Client,
-        beforeEnter: auth.requireAuth,
-        children: [
-            {
-                'path': '/create',
-                component: Client
-            }
-        ]
-}]
+export default [
+    ClientShow,
+    ClientList
+]
