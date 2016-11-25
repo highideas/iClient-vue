@@ -1,7 +1,9 @@
 <template>  
-    <div>
+    <div >
         <navigator></navigator>
-        <router-view></router-view>
+        <div class="body-primary">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
@@ -14,3 +16,11 @@ export default {
     }
 }
 </script>
+
+<style>
+.body-primary {
+    min-height: 100vh;
+    background-color: #00d1b2;
+    color: #333333;
+}
+</style>

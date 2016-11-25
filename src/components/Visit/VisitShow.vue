@@ -1,31 +1,45 @@
 <template>
-<section class="hero is-fullheight is-primary">
+<section class="">
     <div class="container profile column is-12">
-    <div class="section profile-heading" style="color: #333333">
-      <div class="columns">
-        <div class="column is-4">
-          <div class="image is-2by1 avatar">
-            <img src="https://placehold.it/256x256">
-          </div>
+        <div class="column is-12">
+            <div class="section profile-heading">
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="image is-2by1 avatar">
+                            <img src="https://placehold.it/256x256" alt="Map" title="Map">
+                        </div>
+                    </div>
+                    <div class="column is-4 name">
+                        <h3 class="title is-3">
+                            <span class="title is-bold" style="color: #333333">{{ visit.client.name }}</span>
+                        </h3>
+                        <p class="tagline"> <strong>Visit Date: </strong> {{ visit.visit_date }}</p>
+                        <p class="tagline"> <strong>Address: </strong> {{ visit.client.address }}</p>
+                        <p class="tagline"> <strong>Area: </strong> {{ visit.client.area._id }}</p>
+                    </div>
+                    <div class="column is-2 followers has-text-centered">
+                        <p class="stat-val">R$ {{ visit.value_received }}</p>
+                        <p class="stat-key">Value Received</p>
+                    </div>
+                    <div class="column is-2 likes has-text-centered">
+                        <p class="stat-val">{{ visit.sales_quantity}}</p>
+                        <p class="stat-key">Sales Quantity</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="column is-4 name">
-          <h3 class="title is-3">
-            <span class="title is-bold" style="color: #333333">{{ visit.client.name }}</span>
-          </h3>
-          <p class="tagline"> <strong>Visit Date: </strong> {{ visit.visit_date }}</p>
-          <p class="tagline"> <strong>Address: </strong> {{ visit.client.address }}</p>
-          <p class="tagline"> <strong>Area: </strong> {{ visit.client.area._id }}</p>
+        <div class="column is-12">
+            <div class="profile-options">
+             <div class="tabs is-fullwidth">
+               <ul>
+                 <li class="link is-active"><a><span class="icon"><i class="fa fa-check"></i></span> <span>Visited</span></a></li>
+                 <li class="link"><a><span class="icon"><i class="fa fa-calendar"></i></span> <span>Schedule</span></a></li>
+                 <li class="link"><a><span class="icon"><i class="fa fa-pencil"></i></span> <span>Update</span></a></li>
+                 <li class="link"><a><span class="icon"><i class="fa fa-close"></i></span> <span>Delete</span></a></li>
+               </ul>
+             </div>
+           </div>
         </div>
-        <div class="column is-2 followers has-text-centered">
-          <p class="stat-val">R$ {{ visit.value_received }}</p>
-          <p class="stat-key">Value Received</p>
-        </div>
-        <div class="column is-2 likes has-text-centered">
-          <p class="stat-val">{{ visit.sales_quantity}}</p>
-          <p class="stat-key">Sales Quantity</p>
-        </div>
-      </div>
-    </div>
     </div>
 
   </section>
@@ -78,5 +92,16 @@ export default {
     padding: 20px 0;
     line-height: 0.1;
 }
-
+.profile-options {
+  background-color: #f1f1f1;
+  margin:-20px 0 20px 0;
+}
+.profile-options .link a {
+  padding:18px;
+  font-size: 18px;
+}
+.profile-options .link .icon {
+  font-size: 16px;
+  padding-top:2px;
+}
 </style>
