@@ -9,7 +9,7 @@
                 </div>
             </div>
             <center>
-                <div class="card">
+                <div class="card has-text-left">
                     <div class="card-content">
                         <div class="content">
                             <p class="is-5">Name: {{ client.name }}</p>
@@ -68,13 +68,24 @@ export default {
   },
   methods: {
     createVisit() {
+        let url = `${HOST}/api/v1/visit`;
         let data = {
             client: this.client,
             visit_date: new Date(),
             sales_quantity: this.quantity,
             value_received: this.value
         };
-        console.log(data);
+        this.$http.post(url, data, {
+            headers: {
+                Authorization : localStorage.token
+            }
+        }).then(function (res) {
+            let to = '/visit/' + res.data.visit._id;
+            console.log(to, res);
+            this.$router.push(to);
+        }, function (err) {
+            console.log(err);
+        })
     }
   }
 }

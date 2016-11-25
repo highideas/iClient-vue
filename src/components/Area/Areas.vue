@@ -15,7 +15,7 @@
             <tbody>
                 <tr v-for="areaVisit in area.visits">
                     <td>{{ areaVisit.visit.client.name }}</td>
-                    <td>{{ areaVisit.visit.visit_date }}</td>
+                    <td>{{ getDate(areaVisit.visit.visit_date) }}</td>
                     <td class="is-icon">
                         <router-link :to="{ path: '/visit/' + areaVisit.visit._id, params: { id: areaVisit.visit._id }}" exac>
                             <i class="fa fa-info-circle"></i>
@@ -35,6 +35,7 @@
 <script>
 
 import { HOST } from '../../config.js'
+import ViewHelper from '../../helpers/ViewHelper'
 
 export default {
   data () {
@@ -53,5 +54,11 @@ export default {
                 console.log(err);
             });
     },
+    methods: {
+        getDate(date) {
+            let dateObj = new Date(date);
+            return dateObj.toLocaleDateString()
+        }
+    }
 }
 </script>

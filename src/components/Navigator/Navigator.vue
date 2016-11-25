@@ -2,9 +2,9 @@
 <nav class="nav has-shadow" id="top" v-if="isLogged">
     <div class="container">
       <div class="nav-left">
-        <a class="nav-item" href="../index.html">
+        <h2 class="title is-2 nav-item">
             IClient
-        </a>
+        </h2>
       </div>
       <span class="nav-toggle" @click="handleToogle" v-bind:class="{ 'is-active': toogle }">
         <span></span>
