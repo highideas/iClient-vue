@@ -1,7 +1,19 @@
 <template>
 <section class="">
   <div class="container hello">
-    <h1 class="title is-1">{{ msg }}</h1>
+    <div class="level header">
+        <div class="level-left">
+            <h2 class="title is-2">{{ msg }}</h2>
+        </div>
+        <div class="level-right">
+            <router-link :to="{ path: '/client/create/'}"  class="button is-info is-medium" exac>
+                <span class="icon">
+                    <i class="fa fa-plus"></i>
+                </span>
+                <span>New Client</span>
+            </router-link>
+        </div>
+    </div>
     <client-table v-on:clickClient="openClient($event)" />
   </div>
 </section>
@@ -45,4 +57,10 @@ export default {
 </script>
 
 <style>
+.level.header {
+    padding-top: 20px;
+}
+.header h2 {
+    color: #FFFFFF;
+}
 </style>
